@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>co.ryred</groupId>
+    <artifactId>BEss-Build</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+
+        <defaultGoal>clean install</defaultGoal>
+
+        <finalName>BEss</finalName>
+
+        <plugins>
+
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <!-- If I ever use 1.8 I will change it! -->
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- <minimizeJar>true</minimizeJar> -->
+                    <artifactSet>
+                        <includes>
+                            <include>*:*</include>
+                        </includes>
+                    </artifactSet>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>co.ryred</groupId>
+            <artifactId>BEss-Bungee</artifactId>
+            <version>[1.0.0,)</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>co.ryred</groupId>
+            <artifactId>BEss-Bukkit</artifactId>
+            <version>[1.0.0,)</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+
+</project>
