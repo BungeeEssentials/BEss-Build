@@ -17,6 +17,14 @@
 
         <defaultGoal>clean install</defaultGoal>
 
+        <!-- Inject the maven environment variables into these files. -->
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <finalName>BEss</finalName>
 
         <plugins>
