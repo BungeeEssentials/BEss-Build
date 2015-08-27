@@ -57,6 +57,28 @@
                     </artifactSet>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <file>**/bu*.yml</file>
+                    <replacements>
+                        <replacement>
+                            <token>[[[env.MASTER_BUILD]]]</token>
+                            <value>${env.MASTER_BUILD}</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
         </plugins>
 
     </build>
